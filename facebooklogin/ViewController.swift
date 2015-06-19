@@ -7,26 +7,45 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+import FBSDKShareKit
+import FBSDKLoginKit
 
 class ViewController: UIViewController , FBSDKLoginButtonDelegate {
-
+    
+    @IBOutlet weak var logButton: FBSDKLoginButton!
+    
+    @IBOutlet weak var thisLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        println()
         // Do any additional setup after loading the view, typically from a nib.
         if (FBSDKAccessToken.currentAccessToken() != nil)
         {
             // User is already logged in, do work such as go to next view controller.
-        }
-        else
-        {
-            let loginView : FBSDKLoginButton = FBSDKLoginButton()
-            self.view.addSubview(loginView)
-            loginView.center = self.view.center
-            loginView.readPermissions = ["public_profile", "email", "user_friends"]
-            loginView.delegate = self
+            //performSegueWithIdentifier("logined", sender: nil)
+            println("already logged in")
+            thisLabel.text = thisLabel.text! + " , you have logged in"
+            
+            println(FBSDKAccessToken.currentAccessToken())
+          //  println(FBSDKProfile.currentProfile().name)
+           // println(FBSDKProfile.currentProfile().firstName)
+             logButton = FBSDKLoginButton()
+            logButton.readPermissions = ["public_profile", "email", "user_friends"]
+            logButton.delegate = self
+            returnUserData()
+            // println(FBSDKProfile.currentProfile().firstName)
+        } else {
+            thisLabel.text = thisLabel.text! + " , please logg in"
+            println("displaying login button")
+            logButton = FBSDKLoginButton()
+            logButton.center = self.view.center
+            logButton.readPermissions = ["public_profile", "email", "user_friends"]
+            logButton.delegate = self
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -37,11 +56,10 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate {
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         println("User Logged In")
         
-        if ((error) != nil)
-        {
+        if ((error) != nil) {
             // Process error
-        }
-        else if result.isCancelled {
+            println("My error: " + error.description)
+        } else if result.isCancelled {
             // Handle cancellations
         }
         else {
@@ -49,13 +67,17 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate {
             // should check if specific permissions missing
             if result.grantedPermissions.contains("email")
             {
+                println("Got permissioned!")
+                //result.grantedPermissions;
                 // Do work
+                performSegueWithIdentifier("logined", sender: nil)
             }
         }
     }
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         println("User Logged Out")
+        thisLabel.text = "This is first VC, please logg in"
     }
     
     func returnUserData()
@@ -78,7 +100,7 @@ class ViewController: UIViewController , FBSDKLoginButtonDelegate {
             }
         })
     }
-
-
+    
+    
 }
 

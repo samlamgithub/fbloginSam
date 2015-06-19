@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,11 +15,85 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is First VC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdf-yN-bDG">
+                                <rect key="frame" x="243" y="95" width="115" height="20.5"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LZt-Uv-JqF" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="250" y="164" width="100" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="PMV-6T-nmc"/>
+                                    <constraint firstAttribute="width" constant="100" id="gsM-WM-pHV"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="LZt-Uv-JqF" secondAttribute="centerX" id="C02-NH-SeH"/>
+                            <constraint firstAttribute="centerX" secondItem="jdf-yN-bDG" secondAttribute="centerX" id="MEh-qf-kn3"/>
+                            <constraint firstItem="LZt-Uv-JqF" firstAttribute="top" secondItem="jdf-yN-bDG" secondAttribute="bottom" constant="48.5" id="PlP-kd-SMF"/>
+                            <constraint firstItem="jdf-yN-bDG" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="75" id="YFS-2K-4TH"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logButton" destination="LZt-Uv-JqF" id="TZu-zv-r9q"/>
+                        <outlet property="thisLabel" destination="jdf-yN-bDG" id="3nw-Nx-ITl"/>
+                        <segue destination="zxm-Uf-poF" kind="show" identifier="logined" id="tly-Cc-PLT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="hHg-S4-QtM">
+            <objects>
+                <viewController id="zxm-Uf-poF" customClass="SecondViewController" customModule="facebooklogin" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ohh-Yy-hXH"/>
+                        <viewControllerLayoutGuide type="bottom" id="gmi-WY-6LT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="eRW-C5-VxH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is second view controller" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOV-th-Wuq">
+                                <rect key="frame" x="187" y="290" width="226.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vxy-yN-PGq">
+                                <rect key="frame" x="254" y="357" width="93" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Go to first VC">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="zxm-Uf-poF" eventType="touchUpInside" id="sC9-1V-wLX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vxy-yN-PGq" firstAttribute="top" secondItem="AOV-th-Wuq" secondAttribute="bottom" constant="46.5" id="30f-uj-4vA"/>
+                            <constraint firstAttribute="centerX" secondItem="Vxy-yN-PGq" secondAttribute="centerX" id="6bw-at-Unw"/>
+                            <constraint firstAttribute="centerY" secondItem="AOV-th-Wuq" secondAttribute="centerY" id="Ugu-7a-xhR"/>
+                            <constraint firstAttribute="centerX" secondItem="AOV-th-Wuq" secondAttribute="centerX" id="gex-J1-wD6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="show" identifier="goback" id="fnX-x8-4R3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NRL-gF-LA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1084" y="281"/>
         </scene>
     </scenes>
 </document>

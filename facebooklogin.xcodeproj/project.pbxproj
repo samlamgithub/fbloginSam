@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18B537931B337CF9007725A9 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B537921B337CF9007725A9 /* SecondViewController.swift */; };
 		18D811E21B1C60F9001026AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D811E11B1C60F9001026AB /* AppDelegate.swift */; };
 		18D811E41B1C60F9001026AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D811E31B1C60F9001026AB /* ViewController.swift */; };
 		18D811E71B1C60F9001026AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D811E51B1C60F9001026AB /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18B537921B337CF9007725A9 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SecondViewController.swift; path = ../SecondViewController.swift; sourceTree = "<group>"; };
 		18D811DC1B1C60F9001026AB /* facebooklogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = facebooklogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D811E01B1C60F9001026AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D811E11B1C60F9001026AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		18D811DE1B1C60F9001026AB /* facebooklogin */ = {
 			isa = PBXGroup;
 			children = (
+				18B537921B337CF9007725A9 /* SecondViewController.swift */,
 				18D811E11B1C60F9001026AB /* AppDelegate.swift */,
 				18D811E31B1C60F9001026AB /* ViewController.swift */,
 				18D811E51B1C60F9001026AB /* Main.storyboard */,
@@ -226,6 +229,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18B537931B337CF9007725A9 /* SecondViewController.swift in Sources */,
 				18D811E41B1C60F9001026AB /* ViewController.swift in Sources */,
 				18D811E21B1C60F9001026AB /* AppDelegate.swift in Sources */,
 			);
@@ -433,6 +437,7 @@
 				18D811FD1B1C60F9001026AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18D811FE1B1C60F9001026AB /* Build configuration list for PBXNativeTarget "facebookloginTests" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +446,7 @@
 				18D812001B1C60F9001026AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
